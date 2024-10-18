@@ -54,7 +54,7 @@ const Grid: FC<GridProps> = ({ gridCells, robot }) => {
         {gridContent}
         <motion.div
           className="bg-red-400/40 rounded flex items-center justify-center"
-          style={{
+          animate={{
             position: "absolute",
             top: robot.position.y * (gapSize + cellWidth),
             left: robot.position.x * (gapSize + cellWidth),
