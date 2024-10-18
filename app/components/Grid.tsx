@@ -12,6 +12,7 @@ interface GridProps {
 const Grid: FC<GridProps> = ({ gridCells, robot }) => {
   const cellRef = useRef<HTMLDivElement>(null); // Create a ref
   const [cellWidth, setCellWidth] = useState(0.0); // State to store the width
+  const gapSize = 0.5 * 16; // Convert rem to pixels (0.5rem = 8px)
 
   // Function to get the width of the referenced cell
   const getCellWidth = () => {
@@ -55,8 +56,8 @@ const Grid: FC<GridProps> = ({ gridCells, robot }) => {
           className="bg-red-400/40 rounded flex items-center justify-center"
           style={{
             position: "absolute",
-            top: 0,
-            left: 0,
+            top: robot.position.y * (gapSize + cellWidth),
+            left: robot.position.x * (gapSize + cellWidth),
             width: cellWidth,
             height: cellWidth,
           }}

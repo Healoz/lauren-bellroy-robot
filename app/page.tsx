@@ -22,7 +22,7 @@ export default function Home() {
   // Initialize the robot once gridCells has been populated
   useEffect(() => {
     if (gridCells.length > 0) {
-      setRobot({ position: gridCells[0], direction: Direction.S });
+      setRobot({ position: gridCells[10], direction: Direction.S });
     }
   }, [gridCells]); // This effect runs after gridCells is populated
 
