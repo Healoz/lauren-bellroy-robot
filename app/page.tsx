@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Grid from "./components/Grid";
 import { Direction, GridCell, Robot } from "./types";
+import Controls from "./components/Controls";
 
 export default function Home() {
   const [gridCells, setGridCells] = useState<GridCell[]>([]);
@@ -29,6 +30,7 @@ export default function Home() {
     <section className="w-full flex h-svh bg-white">
       <div className="flex w-full h-full flex-col items-center justify-center p-10">
         {robot && <Grid gridCells={gridCells} robot={robot} />}
+        <Controls />
       </div>
     </section>
   );
