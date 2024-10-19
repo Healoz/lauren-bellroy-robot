@@ -53,7 +53,7 @@ const Grid: FC<GridProps> = ({ gridCells, robot }) => {
       <div className="grid grid-cols-5 grid-rows-5 gap-2 w-full max-w-[800px] aspect-square relative">
         {gridContent}
         <motion.div
-          className="rounded flex items-center justify-center"
+          className="rounded flex items-center justify-center pointer-events-none"
           animate={{
             position: "absolute",
             top: robot.position.y * (gapSize + cellWidth),

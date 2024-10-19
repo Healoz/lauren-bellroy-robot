@@ -10,12 +10,6 @@ interface RobotProps {
 
 const RobotIcon: FC<RobotProps> = ({ robot }) => {
   const rotateAmount = (): number => {
-    const directionMap = {
-      [Direction.N]: 0,
-      [Direction.E]: 90,
-      [Direction.S]: 180,
-      [Direction.W]: 270,
-    };
     let rotateAmount = 0;
     switch (robot.direction) {
       case Direction.N:
@@ -36,6 +30,7 @@ const RobotIcon: FC<RobotProps> = ({ robot }) => {
 
     return rotateAmount;
   };
+
   return (
     <motion.div className="text-black " animate={{ rotate: rotateAmount() }}>
       <SmartToyIcon className="text-4xl icon" />

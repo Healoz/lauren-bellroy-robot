@@ -19,7 +19,7 @@ const Controls: FC<ControlsProps> = ({
   playNudgeAnimation,
 }) => {
   return (
-    <div className="gap-4 flex ">
+    <div className="gap-4 flex">
       <Button
         icon={RotateLeftIcon}
         onClick={() => rotateRobot(RotateDirection.Left)}

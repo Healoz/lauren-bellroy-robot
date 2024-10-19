@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Grid from "./components/Grid";
 import { Direction, GridCell, Robot, RotateDirection } from "./types";
 import Controls from "./components/Controls";
+import Heading from "./components/Heading";
 
 export default function Home() {
   const [gridCells, setGridCells] = useState<GridCell[]>([]);
@@ -22,7 +23,7 @@ export default function Home() {
   // Initialize the robot once gridCells has been populated
   useEffect(() => {
     if (gridCells.length > 0) {
-      setRobot({ position: { x: 3, y: 0 }, direction: Direction.N });
+      setRobot({ position: { x: 2, y: 2 }, direction: Direction.N });
     }
   }, [gridCells]); // This effect runs after gridCells is populated
 
@@ -121,14 +122,17 @@ export default function Home() {
 
   return (
     <section className="w-full flex h-svh bg-white">
-      <div className="flex w-full h-full flex-col items-center justify-center p-10 gap-10">
-        {robot && <Grid gridCells={gridCells} robot={robot} />}
-        <Controls
-          rotateRobot={rotateRobot}
-          moveRobotForward={moveRobotForward}
-          isFacingEdge={isFacingEdge}
-          playNudgeAnimation={playNudgeAnimation}
-        />
+      <div className="flex w-full h-full flex-col items-center justify-center ">
+        <Heading />
+        <div className="flex flex-col w-full h-full items-center justify-center p-10 gap-10">
+          {robot && <Grid gridCells={gridCells} robot={robot} />}
+          <Controls
+            rotateRobot={rotateRobot}
+            moveRobotForward={moveRobotForward}
+            isFacingEdge={isFacingEdge}
+            playNudgeAnimation={playNudgeAnimation}
+          />
+        </div>
       </div>
     </section>
   );
