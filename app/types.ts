@@ -14,3 +14,8 @@ export enum Direction {
   S = "S",
   W = "W"
 }
+
+export enum RotateDirection {
+  Left = "LEFT",
+  Right = "RIGHT"
+}
