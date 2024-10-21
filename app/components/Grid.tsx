@@ -43,7 +43,7 @@ const Grid: FC<GridProps> = ({ gridCells, robot }) => {
       <div
         key={`${gridCell.x}-${gridCell.y}`}
         ref={index === 0 ? cellRef : null} // apply cellRef to only the first cell
-        className="bg-gray-100 text-black rounded transition-transform hover:scale-105 cursor-pointer flex items-center justify-center"
+        className="bg-gray-100 text-black transition-transform flex items-center justify-center"
       ></div>
     );
   });
@@ -53,7 +53,7 @@ const Grid: FC<GridProps> = ({ gridCells, robot }) => {
       <div className="grid grid-cols-5 grid-rows-5 gap-2 w-full max-w-[800px] aspect-square relative">
         {gridContent}
         <motion.div
-          className="rounded flex items-center justify-center pointer-events-none"
+          className="rounded flex items-center justify-center"
           animate={{
             position: "absolute",
             top: robot.position.y * (gapSize + cellWidth),

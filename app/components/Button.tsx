@@ -12,11 +12,11 @@ interface ButtonProps {
 const Button: FC<ButtonProps> = ({ icon: Icon, onClick, isDisabled }) => {
   return (
     <motion.button
-      className="border text-black rounded-full p-7"
+      className=" text-white bg-orange-400 rounded-md p-7"
       onClick={!isDisabled ? onClick : undefined}
       role="button" // Accessibility
       aria-disabled={isDisabled} // ARIA attribute for accessibility
-      whileHover={{ scale: 1.1, backgroundColor: "#f7f7f7" }}
+      whileHover={{ scale: 1.1, backgroundColor: "rgb(255 103 42)" }}
       whileTap={{ scale: 0.9 }}
     >
       <Icon />

@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { Direction, Robot } from "../types";
 import SmartToyIcon from "@mui/icons-material/SmartToy";
 import ArrowDropDownCircleIcon from "@mui/icons-material/ArrowDropDownCircle";
-import { motion } from "framer-motion";
+import { motion, useAnimationControls } from "framer-motion";
 
 interface RobotProps {
   robot: Robot;
@@ -31,8 +31,31 @@ const RobotIcon: FC<RobotProps> = ({ robot }) => {
     return rotateAmount;
   };
 
+  const playNudgeAnimation = () => {
+    const animationControls = useAnimationControls();
+  };
+
   return (
-    <motion.div className="text-black " animate={{ rotate: rotateAmount() }}>
+    <motion.div
+      className="text-orange-400 "
+      animate={{ rotate: rotateAmount() }}
+      initial={{ rotate: 0 }}
+      variants={{
+        nudge: {
+          rotate: [
+            rotateAmount(),
+            rotateAmount() + 20,
+            rotateAmount(),
+            rotateAmount() - 20,
+            rotateAmount(),
+          ],
+          transition: {
+            duration: 0.3,
+          },
+        },
+      }}
+      whileHover="nudge"
+    >
       <SmartToyIcon className="text-4xl icon" />
     </motion.div>
   );
